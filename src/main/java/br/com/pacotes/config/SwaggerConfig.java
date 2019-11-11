@@ -19,7 +19,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("br.com.pacotes.controller"))
                 .build()
-                .groupName("Groupo Dasa APIs")
+                .groupName("Contatos")
                 .apiInfo(apiInfo());
 
     }
@@ -28,8 +28,8 @@ public class SwaggerConfig {
 
         return new ApiInfoBuilder()
                 .termsOfServiceUrl("Terms of service")
-                .title("API de Microserviço aceite de termo ")
-                .description("API referente aceite de termo")
+                .title("API de cadastro de termo ")
+                .description("API cadastro de contato")
                 .version("v1")
                 .build();
 
