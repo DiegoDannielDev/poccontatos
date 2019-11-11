@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/controller")
 public class ContatoController {
@@ -28,13 +30,21 @@ public class ContatoController {
 
 
     @DeleteMapping(value = "/delete/{id}")
-    public Boolean removeContato(@PathVariable Long id) {
+    public ResponseEntity removeContato(@PathVariable Long id) {
 
         LOGGER.info("Deletando registro {}", id);
         try {
-            this.contatoRepository.deleteById(id);
-            LOGGER.info("Contato removido");
-            return true;
+            Optional<Contato> contatoOptional = this.contatoRepository.findById(id);
+            if (contatoOptional.isPresent()) {
+                this.contatoRepository.deleteById(id);
+                LOGGER.info("Contato removido");
+                return new ResponseEntity("Contato removido com sucesso",HttpStatus.OK);
+            } else {
+                LOGGER.info("ID não encontrado");
+                return new ResponseEntity("ID não encontrado",HttpStatus.BAD_REQUEST);
+            }
+
+
         } catch (Exception e) {
             LOGGER.error("houve um erro ao remover registro na base de dados");
             throw new RuntimeException("houve um erro ao remover registro na base de dados " + e.getMessage());
