@@ -13,7 +13,7 @@ before_deploy:
 
 deploy:
   provider: heroku
-  api_key: fe3d2003-8c3f-4dad-a45d-b8deac470ec2
+  api_key: e883867a7254685c707f772e44fb85bda060dbce
   app: contatogestao
 
 
