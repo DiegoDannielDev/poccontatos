@@ -1,12 +1,13 @@
-package com.algaworks.contato;
+package br.com.pacotes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContatoApiApplication {
+public class ContatosApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContatoApiApplication.class, args);
+		SpringApplication.run(ContatosApiApplication.class, args);
 	}
+
 }
