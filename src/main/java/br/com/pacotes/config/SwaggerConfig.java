@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
         return new ApiInfoBuilder()
                 .termsOfServiceUrl("Terms of service")
-                .title("API de cadastro de termo ")
+                .title("API de cadastro de contato ")
                 .description("API cadastro de contato")
                 .version("v1")
                 .build();
