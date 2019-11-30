@@ -73,7 +73,7 @@ public class ContatoController {
 
     }
 
-    @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json")
+    @GetMapping(value = "/contato/{id}")
     @ApiOperation(httpMethod = "GET", value = "Responsavel por buscar um contato pelo id", response = Contato.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Sucesso"),
             @ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
