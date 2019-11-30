@@ -38,10 +38,10 @@ public class ContatoController {
             if (contatoOptional.isPresent()) {
                 this.contatoRepository.deleteById(id);
                 LOGGER.info("Contato removido");
-                return new ResponseEntity("Contato removido com sucesso",HttpStatus.OK);
+                return new ResponseEntity("Contato removido com sucesso", HttpStatus.OK);
             } else {
                 LOGGER.info("ID não encontrado");
-                return new ResponseEntity("ID não encontrado",HttpStatus.BAD_REQUEST);
+                return new ResponseEntity("ID não encontrado", HttpStatus.BAD_REQUEST);
             }
 
 
@@ -72,4 +72,18 @@ public class ContatoController {
         }
 
     }
+
+    @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json")
+    @ApiOperation(httpMethod = "GET", value = "Responsavel por buscar um contato pelo id", response = Contato.class)
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "Sucesso"),
+            @ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Um erro interno foi detectado")})
+    public ResponseEntity getContainsId(@PathVariable Long id) {
+        return contatoRepository.findById(id).map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+
+    }
+
+
 }
