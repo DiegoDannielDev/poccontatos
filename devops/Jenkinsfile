@@ -7,7 +7,6 @@ pipeline {
                 echo "Pipeline Usando Jenkinsfile"
         }
     }
-
         stage('STAGE 01'){ 
             steps{
                 echo "Pipeline Usando Jenkinsfile"
@@ -16,7 +15,7 @@ pipeline {
         stage('Unit Test') {
             steps {
                println('Skip unit test')
-                  sh 'bash -x devops-tools/pipeline-shared-librares/unit-tests.sh'
+                 mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
             }
         }
     }
