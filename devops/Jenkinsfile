@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Unit Test') {
                     steps {
-                        println('Skip unit test')//sh 'bash -x devops-tools/pipeline-shared-librares/unit-tests.sh'
+                        println('Skip unit test')
+                        sh 'bash -x devops-tools/pipeline-shared-librares/unit-tests.sh'
                     }
                 }
     } 
