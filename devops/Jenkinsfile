@@ -19,4 +19,5 @@ pipeline {
                   sh 'bash -x devops-tools/pipeline-shared-librares/unit-tests.sh'
             }
         }
+    }
 } 
